@@ -157,15 +157,26 @@ export default function Home() {
           justifyContent: "space-between",
         }}
       >
-        <span
-          style={{
-            fontSize: "13px",
-            color: "var(--text-muted)",
-            fontWeight: 500,
-          }}
-        >
-          © 2026 Pixel<span style={{ color: "var(--brand)" }}>Play</span>
-        </span>
+        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+          <span
+            style={{
+              fontSize: "13px",
+              color: "var(--text-muted)",
+              fontWeight: 500,
+            }}
+          >
+            © 2026 Pixel<span style={{ color: "var(--brand)" }}>Play</span>
+          </span>
+          <span
+            style={{
+              fontSize: "11px",
+              color: "var(--text-muted)",
+              opacity: 0.7,
+            }}
+          >
+            by Aarya Manchanda
+          </span>
+        </div>
         <span
           style={{
             fontSize: "11px",
