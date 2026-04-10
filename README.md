@@ -97,7 +97,7 @@ const firebaseConfig = {
 
 ## 📈 Roadmap & Future Improvements
 
-- [ ] **Real Payment Integration**: Replace the simulated pricing page with a live [Stripe](https://stripe.com/) Checkout flow.
+- [ ] **Real Payment Integration**: Replace the simulated pricing page with a live [Razorpay](https://razorpay.com/) Checkout flow.
 - [ ] **User Profiles**: Allow multiple user profiles (Adult/Kids) under a single Firebase account.
 - [ ] **Advanced Filtering**: Add genre-based browse pages and refined sorting (Release Date, Rating).
 - [ ] **Mobile Optimization**: Further refine the navigation drawer and touch gestures for a native-like mobile app experience.

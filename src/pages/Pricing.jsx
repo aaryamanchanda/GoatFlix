@@ -25,8 +25,8 @@ export default function Pricing() {
 
     try {
       const options = {
-        key: "YOUR_RAZORPAY_KEY_ID",
-        amount: 5900,
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID || "YOUR_RAZORPAY_KEY_ID",
+        amount: 6900,
         currency: "INR",
         name: "GoatFlix",
         description: "GoatFlix Premium — Unlimited Streaming",
@@ -74,7 +74,6 @@ export default function Pricing() {
     { icon: "🔥", text: "Full HD & 4K streaming" },
     { icon: "⚡", text: "No ads, ever" },
     { icon: "🌟", text: "New releases every week" },
-    { icon: "💾", text: "Download & watch offline" },
   ];
 
   const faqs = [
@@ -84,7 +83,7 @@ export default function Pricing() {
     },
     {
       q: "How many devices can I watch on?",
-      a: "You can watch GoatFlix on up to 4 devices simultaneously. Sign in on your phone, tablet, laptop, and TV — all at the same time.",
+      a: "You can watch GoatFlix on up to 2 devices simultaneously. Sign in on your phone, tablet, laptop, and TV — all at the same time.",
     },
     {
       q: "What payment methods do you accept?",
@@ -92,7 +91,7 @@ export default function Pricing() {
     },
     {
       q: "Is there a free trial?",
-      a: "We don't offer a free trial, but at just ₹59/month (less than ₹2/day), GoatFlix is incredibly affordable. Plus, you can cancel anytime!",
+      a: "We don't offer a free trial, but at just ₹69/month (less than ₹3/day), GoatFlix is incredibly affordable. Plus, you can cancel anytime!",
     },
     {
       q: "What content is available?",
@@ -143,11 +142,11 @@ export default function Pricing() {
             <div style={styles.priceRow}>
               <div style={styles.priceMain}>
                 <span style={styles.currency}>₹</span>
-                <span style={styles.amount}>59</span>
+                <span style={styles.amount}>69</span>
                 <span style={styles.period}>/month</span>
               </div>
               <div style={styles.savings}>
-                That's less than ₹2/day!
+                That's less than ₹3/day!
               </div>
             </div>
 

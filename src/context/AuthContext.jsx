@@ -28,11 +28,12 @@ export function AuthProvider({ children }) {
     const unsub = onAuthStateChanged(auth, async (firebaseUser) => {
       setUser(firebaseUser);
       if (firebaseUser) {
+        const isAdmin = import.meta.env.VITE_ADMIN_EMAIL && firebaseUser.email === import.meta.env.VITE_ADMIN_EMAIL;
         // Check subscription status in Firestore
         try {
           const snap = await getDoc(doc(db, "users", firebaseUser.uid));
           if (snap.exists()) {
-            setSubscribed(snap.data().subscribed === true);
+            setSubscribed(snap.data().subscribed === true || isAdmin);
           } else {
             // First-time user — create document
             await setDoc(doc(db, "users", firebaseUser.uid), {
@@ -41,11 +42,11 @@ export function AuthProvider({ children }) {
               subscribed: false,
               createdAt: new Date().toISOString(),
             });
-            setSubscribed(false);
+            setSubscribed(isAdmin);
           }
         } catch (err) {
           console.error("Firestore read error:", err);
-          setSubscribed(false);
+          setSubscribed(isAdmin); // Failsafe for admin
         }
       } else {
         setSubscribed(false);
