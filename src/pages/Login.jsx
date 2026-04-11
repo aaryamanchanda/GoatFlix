@@ -51,8 +51,9 @@ export default function Login() {
       await loginWithGoogle();
       navigate("/");
     } catch (err) {
+      console.error("Google Login Error:", err);
       if (err.code !== "auth/popup-closed-by-user") {
-        setError("Google sign-in failed");
+        setError(err.message || "Google sign-in failed");
       }
     } finally {
       setLoading(false);
