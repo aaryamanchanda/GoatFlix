@@ -28,7 +28,10 @@ export function AuthProvider({ children }) {
     const unsub = onAuthStateChanged(auth, async (firebaseUser) => {
       setUser(firebaseUser);
       if (firebaseUser) {
-        const isAdmin = import.meta.env.VITE_ADMIN_EMAIL && firebaseUser.email === import.meta.env.VITE_ADMIN_EMAIL;
+        const adminEnv = import.meta.env.VITE_ADMIN_EMAIL || "";
+        const adminEmail = adminEnv.replace(/['"]/g, "").trim().toLowerCase();
+        const userEmail = firebaseUser.email?.toLowerCase() || "";
+        const isAdmin = adminEmail && userEmail === adminEmail;
         // Check subscription status in Firestore
         try {
           const snap = await getDoc(doc(db, "users", firebaseUser.uid));
