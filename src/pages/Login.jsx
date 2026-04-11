@@ -137,7 +137,7 @@ export default function Login() {
         {/* Google Button — hide on forgot password */}
         {!isForgot && (
           <>
-            <button onClick={handleGoogle} disabled={loading} style={styles.googleBtn}
+            <button type="button" onClick={handleGoogle} disabled={loading} style={styles.googleBtn}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "rgba(255,255,255,0.12)";
                 e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
